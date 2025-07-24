@@ -53,6 +53,6 @@ jobs:
     - name: Deploy to Elastic Beanstalk
       run: |
 
-        eb init ${{ env.EB_APPLICATION_NAME }} --region ${{ env.AWS_REGION }}
+        eb init ${{ env.EB_APPLICATION_NAME }} --region ${{ env.AWS_REGION }} --no-codecommit
         eb use ${{ env.EB_ENVIRONMENT_NAME }}
         eb deploy ${{ env.EB_ENVIRONMENT_NAME }}
