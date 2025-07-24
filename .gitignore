@@ -9,7 +9,6 @@ yarn-error.log*
 .env
 
 # Docker
-Dockerfile
 docker-compose.override.yml
 
 # IDE and Redactors
