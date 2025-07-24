@@ -50,9 +50,16 @@ jobs:
         aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.AWS_REGION }}
 
+    - name: Initialize EB only if needed
+      run: |
+        if [ ! -d ".elasticbeanstalk" ]; then
+          eb init ${{ env.EB_APPLICATION_NAME }} --region ${{ env.AWS_REGION }} --quiet
+        else
+          echo ".elasticbeanstalk folder exists, skipping eb init"
+        fi
+
     - name: Use EB environment
       run: eb use ${{ env.EB_ENVIRONMENT_NAME }}
 
     - name: Deploy to Elastic Beanstalk
       run: eb deploy ${{ env.EB_ENVIRONMENT_NAME }}
-

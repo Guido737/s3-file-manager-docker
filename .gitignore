@@ -19,7 +19,5 @@ docker-compose.override.yml
 # MacOS
 .DS_Store
 
-# Elastic Beanstalk
+# Elastic Beanstalk cache
 .elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
