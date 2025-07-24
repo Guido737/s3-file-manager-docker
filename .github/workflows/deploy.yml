@@ -53,6 +53,6 @@ jobs:
     - name: Deploy to Elastic Beanstalk
       run: |
         zip -r deploy.zip . -x '*.git*' 'node_modules/*' '*.github/*'
-        eb init ${{ env.EB_APPLICATION_NAME }} --region ${{ env.AWS_REGION }}
+        eb init ${{ env.EB_APPLICATION_NAME }} --region ${{ env.AWS_REGION }} --no-setup-iam --quiet
         eb use ${{ env.EB_ENVIRONMENT_NAME }}
         eb deploy ${{ env.EB_ENVIRONMENT_NAME }}
