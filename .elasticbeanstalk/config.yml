@@ -1,0 +1,20 @@
+branch-defaults:
+  default:
+    environment: s3-file-manager-env
+    group_suffix: null
+  main:
+    environment: s3-file-manager-env
+global:
+  application_name: s3-file-manager
+  branch: null
+  default_ec2_keyname: null
+  default_platform: Docker running on 64bit Amazon Linux 2023
+  default_region: eu-central-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: eb-cli
+  repository: null
+  sc: null
+  workspace_type: Application
