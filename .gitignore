@@ -21,3 +21,5 @@ docker-compose.override.yml
 
 # Elastic Beanstalk cache
 .elasticbeanstalk/*
+!.elasticbeanstalk/config.yml
+!.elasticbeanstalk/branch-defaults.yml
