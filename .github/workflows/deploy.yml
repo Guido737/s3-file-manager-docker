@@ -3,7 +3,7 @@ name: Deploy to Elastic Beanstalk
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -24,6 +24,11 @@ jobs:
     - name: Build Docker image
       run: docker build -t s3-file-manager .
 
+    - name: Install EB CLI
+      run: |
+        python3 -m pip install --upgrade pip
+        pip install awsebcli
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
@@ -37,3 +42,4 @@ jobs:
         eb init ${{ secrets.EB_APPLICATION_NAME }} --region ${{ secrets.AWS_REGION }}
         eb use ${{ secrets.EB_ENVIRONMENT_NAME }}
         eb deploy ${{ secrets.EB_ENVIRONMENT_NAME }}
+
